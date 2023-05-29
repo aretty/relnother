@@ -1,0 +1,63 @@
+<%- include('./common/header.ejs') %>
+  
+    <div class="wrapper">
+        <div id="background-star">
+            <div class="top">
+                <div class="inner">
+                    <div class="c1_s">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s1.png" class="c1_s1" style="top:142px;left:0;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s2.png" class="c1_s2" style="top:252px;left:157px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s3.png" class="c1_s3" style="top:218px;left:320px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s4.png" class="c1_s4" style="top:0;left:397px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s5.png" class="c1_s5" style="top:110px;left:598px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s6.png" class="c1_s6" style="top:292px;left:713px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s7.png" class="c1_s7" style="top:143px;left:805px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s8.png" class="c1_s8" style="top:136px;left:900px;">
+                    </div>
+                    <div class="c1_s" style="position:absolute;top:0;left:50%;width:1253px;height:417px;margin:400px 0px 0px -408px;transform:scale(1.3)">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s1.png" class="c1_s1" style="top:142px;left:0;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s2.png" class="c1_s2" style="top:252px;left:157px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s3.png" class="c1_s3" style="top:218px;left:320px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s4.png" class="c1_s4" style="top:0;left:397px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s5.png" class="c1_s5" style="top:200px;left:1200px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s6.png" class="c1_s6" style="top:292px;left:713px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s7.png" class="c1_s7" style="top:143px;left:805px;">
+                        <img src="http://img247.etoos.com/web/w247/images/cnt/recruit/early2021/c1_s8.png" class="c1_s8" style="top:136px;left:900px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="middle">
+            <h1 class="animate__animated animate__fadeInDown">Relnother</h1>
+            <p class="sub_title animate__animated animate__bounceInLeft animate__delay-1s animate__slow">릴나더에서 만드는 또 다른 관계</p>
+        </div>
+
+        <div class="enter-wrap animate__animated animate__bounceInUp animate__delay-2s">
+            <button type="button"><img src="/img/neon_arrow.svg"></button>
+        </div>
+
+
+        <div class="chatting-wrap" style="display: none;">
+            <ul class="chatting-list">
+
+            </ul>
+
+            <div class="input-wrap">
+                <div class="user-container">
+                    대화명 : <input type="text" id="nickname" value="<%=userName%>">
+                </div>
+                <div class="input-container">
+                    <input type="text" class="chatting-input">
+                    <button class="send-button">전송</button>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+
+    <!-- <script type="text/javascript" src="/socket.io/socket.io.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/js/chat.js"></script>
+    
+<%- include('./common/footer.ejs') %>
