@@ -55,6 +55,14 @@
         </div>
     </div>
 
+    <div id="loginModal" class="modal-wrap">
+        <div class="modal-content">
+          <!-- <span class="close">&times;</span> -->
+          <h2 class="modal-title">LOGIN</h2>
+          <p class="modal-sub-title">로그인 후 릴나더 세상으로 들어오세요!</p>
+        </div>
+    </div>
+
     <!-- <script type="text/javascript" src="/socket.io/socket.io.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/js/chat.js"></script>
@@ -62,7 +70,8 @@
     <script>
         $(function(){
             $("#enter_btn").click(function(){
-                console.log("dd");
+                $(".enter-wrap").fadeOut(1000);
+                openPop("loginModal");
             });
         });
     </script>
