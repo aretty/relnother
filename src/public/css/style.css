@@ -330,6 +330,7 @@ ul {list-style:none}
         width: 40px;
     }
     .modal-wrap {
+        height: 70vh;
         top: unset;
         bottom: 0;
         border-radius: 40px 40px 0 0;
