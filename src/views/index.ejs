@@ -34,7 +34,7 @@
         </div>
 
         <div class="enter-wrap animate__animated animate__bounceInUp animate__delay-2s">
-            <button type="button"><img src="/img/neon_arrow.svg"></button>
+            <button type="button" id="enter_btn"><img src="/img/neon_arrow.svg"></button>
         </div>
 
 
@@ -58,5 +58,13 @@
     <!-- <script type="text/javascript" src="/socket.io/socket.io.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/js/chat.js"></script>
+
+    <script>
+        $(function(){
+            $("#enter_btn").click(function(){
+                console.log("dd");
+            });
+        });
+    </script>
     
 <%- include('./common/footer.ejs') %>
