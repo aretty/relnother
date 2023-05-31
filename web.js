@@ -52,7 +52,7 @@ app.use("/",page) //use -> 미들웨어 등록
 app.use("/auth",authRouter) 
 
 app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.session());
 
 server.listen(PORT, () => {
     console.log(`server started on PORT ${PORT}`)
