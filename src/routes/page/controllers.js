@@ -5,6 +5,7 @@ const User = require("../../models/User")
 
 const output = {
     main : (req, res) => {
+        console.log(req.session);
         const userName = req.session.userName;
         
         if(userName){
