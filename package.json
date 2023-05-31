@@ -9,6 +9,9 @@
     "memorystore": "^1.6.7",
     "moment": "^2.29.4",
     "mysql": "^2.18.1",
+    "passport": "^0.6.0",
+    "passport-naver": "^1.0.6",
+    "passport-naver-v2": "^2.0.8",
     "socket.io": "^4.6.1"
   },
   "scripts": {

@@ -6,6 +6,7 @@ const bodyParser = require("body-parser")
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const MemoryStore = require('memorystore')(session);
+var passport = require('passport');
 
 const dotenv = require("dotenv")
 dotenv.config();
@@ -16,6 +17,7 @@ const path = require("path")
 const PORT = process.env.PORT || 8001;
 const socketIO = require("socket.io")
 const page = require("./src/routes/page") //라우팅
+const authRouter = require("./src/routes/page/auth") 
 
 const server = http.createServer(app)
 const io = socketIO(server);
@@ -47,6 +49,10 @@ app.use(express.static(path.join(__dirname,"src","public")))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use("/",page) //use -> 미들웨어 등록
+app.use("/auth",authRouter) 
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 server.listen(PORT, () => {
     console.log(`server started on PORT ${PORT}`)

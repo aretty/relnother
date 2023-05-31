@@ -2,6 +2,7 @@
 
 const User = require("../../models/User")
 
+
 const output = {
     main : (req, res) => {
         const userName = req.session.userName;
@@ -24,6 +25,9 @@ const output = {
     },
     test : (req,res) => {
         res.render('test')
+    },
+    naverCallback : (req,res) => {
+
     }
 };
 

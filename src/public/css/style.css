@@ -55,11 +55,11 @@ ul {list-style:none}
     position: fixed;
     z-index: 1;
     width: 100%;
-    height: 80vh;
+    height: auto;
     top: 10vh;
     left: 0;
     right: 0;
-    max-width: 500px;
+    max-width: 450px;
     margin: 0 auto;
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(15px);
@@ -85,7 +85,7 @@ ul {list-style:none}
 }
 .modal-wrap .modal-content .modal-sub-title {
     font-family: 'NeoDunggeunmoPro-Regular';
-    color: #fff;
+    color: #ddd;
     text-align: center;
 }
 
@@ -303,6 +303,73 @@ ul {list-style:none}
     width: 100%;
 }
 
+.login-form {
+    width: 100%;
+    max-width: 314px;
+    margin: 50px auto;
+}
+.login-form .row {margin-bottom: 15px;}
+.login-form .row .label {
+    margin-bottom: 10px;
+    color: #ddd;
+    font-family: 'NeoDunggeunmoPro-Regular';
+}
+.login-form .row input{
+    border: none;
+    width: 100%;
+    max-width: 314px;
+    height: 55px;
+    color: #fff;
+    background: url(/img/input_back.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 7px;
+    outline: none;
+    padding: 0 20px;
+    font-size: 16px;
+}
+
+.login-form .login-btn-wrap {
+    padding-top: 20px;
+}
+.login-form .login-btn-wrap .login-btn{
+    background: linear-gradient(90.3deg, #9C3FE4 0.16%, #C65647 101.62%);
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.login-form .join-text {
+    position: relative;
+    color: #ddd;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+}
+.login-form .join-text::before{
+    content: "";
+    position: absolute;
+    width: 98px;
+    height: 1px;
+    left: 0px;
+    top: 50%;
+    transform: translate(0,-50%);
+    background: linear-gradient(270deg, rgba(217, 217, 217, 0.75) 0%, rgba(217, 217, 217, 0) 94.39%);
+}
+.login-form .join-text::after{
+    content: "";
+    position: absolute;
+    width: 98px;
+    height: 1px;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+    background: linear-gradient(89.99deg, rgba(217, 217, 217, 0.75) 0%, rgba(217, 217, 217, 0) 105.61%);
+}
+
 /* 노트북 & 테블릿 가로 (해상도 1024px ~ 1279px)*/ 
 @media all and (max-width:1279px) { 
    
@@ -330,7 +397,6 @@ ul {list-style:none}
         width: 40px;
     }
     .modal-wrap {
-        height: 70vh;
         top: unset;
         bottom: 0;
         border-radius: 40px 40px 0 0;
