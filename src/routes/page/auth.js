@@ -25,6 +25,7 @@ function(accessToken, refreshToken, profile, done) {
 
     process.nextTick(function () {
 
+        console.log(profile);
         var user = {
             name: profile.displayName,
             email: profile.emails[0].value,
@@ -34,9 +35,9 @@ function(accessToken, refreshToken, profile, done) {
 
         };
 
-        console.log("user=");
+        // console.log("user=");
 
-        console.log(user);
+        // console.log(user);
 
      
 
@@ -57,7 +58,7 @@ passport.deserializeUser(function(req, user, done) {
      // passport로 로그인 처리 후 해당 정보를 session에 담는다.
 
      req.session.sid = user.name;
-     console.log("Session Check :" +req.session.sid);
+    //  console.log("Session Check :" +req.session.sid);
     done(null, user);
 });
 
