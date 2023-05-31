@@ -11,7 +11,7 @@ var NaverStrategy = require('passport-naver').Strategy;
 router.get('/naver',passport.authenticate('naver', { authType: 'reprompt' }))
 router.get('/naver/callback', passport.authenticate('naver', {
     successRedirect: '/',
-    failureRedirect: '/'
+    failureRedirect: '/login'
   })
  );
 
