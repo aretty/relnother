@@ -27,20 +27,17 @@ function(accessToken, refreshToken, profile, done) {
 
         console.log(profile);
         var user = {
-            name: profile.displayName,
+            // name: profile.displayName,
             email: profile.emails[0].value,
-            username: profile.displayName,
             provider: 'naver',
             naver: profile._json
 
         };
 
         // console.log("user=");
-
         // console.log(user);
 
-     
-
+    
         return done(null, user);
 
      });

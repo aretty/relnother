@@ -64,16 +64,19 @@
                 <div class="login-form">
                     <div class="row">
                         <p class="label">아이디</p>
-                        <input type="text">
+                        <img src="/img/user-icon.svg" class="icon">
+                        <input type="text" name="user_id" id="user_id">
                     </div>
                     <div class="row">
                         <p class="label">비밀번호</p>
-                        <input type="password" autocomplete="off">
+                        <img src="/img/key-icon.svg" class="icon">
+                        <input type="password" name="user_pw" id="user_pw" autocomplete="off">
                     </div>
                     <div class="login-btn-wrap">
                         <button class="login-btn">LOGIN</button>
                     </div>
                     <div class="join-text">릴나더가 처음이라면?</div>
+                    <a href="javascript:;" class="sign-up-btn">SIGN UP</a>
                 </div>
             </div>
         </div>
@@ -88,6 +91,7 @@
             $("#enter_btn").click(function(){
                 $(".enter-wrap").fadeOut(1000);
                 openPop("loginModal");
+                $("#user_id").focus();
             });
         });
     </script>
