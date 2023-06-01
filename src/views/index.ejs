@@ -76,8 +76,10 @@
                         <div class="login-btn-wrap">
                             <button type="button" class="login-btn">LOGIN</button>
                         </div>
-                        <div class="join-text">릴나더가 처음이라면?</div>
-                        <a href="javascript:;" class="sign-up-btn">SIGN UP</a>
+                        <div class="join-wrap">
+                            <div class="join-text">릴나더가 처음이라면?</div>
+                            <a href="javascript:;" class="sign-up-btn">SIGN UP</a>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -94,6 +96,16 @@
                 $(".enter-wrap").fadeOut(1000);
                 openPop("loginModal");
             });
+
+            if(isMobile()){
+                $("input[type=text], input[type=password]").focus(function(){
+                    $(".join-wrap").hide();
+                });
+
+                $("input[type=text], input[type=password]").blur(function(){
+                    $(".join-wrap").show();
+                });
+            }
         });
     </script>
     
