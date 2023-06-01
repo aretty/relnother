@@ -52,7 +52,7 @@ ul {list-style:none}
 /* 모달 공통 */
 .modal-wrap {
     display: none;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     width: 100%;
     height: auto;
