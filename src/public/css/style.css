@@ -289,7 +289,7 @@ ul {list-style:none}
 .wrapper .enter-wrap {
     position: absolute;
     padding: 20px;
-    bottom: 15%;
+    bottom: 20%;
     width: 100%;
     text-align: center;
 }
@@ -307,18 +307,19 @@ ul {list-style:none}
 .login-form {
     width: 100%;
     max-width: 314px;
-    margin: 50px auto 20px;
+    margin: 35px auto 20px;
 }
 .login-form .row {margin-bottom: 15px;position: relative}
 .login-form .row .icon {
     position: absolute;
-    bottom: 20px;
+    bottom: 19px;
     left: 20px;
 }
 .login-form .row .label {
     margin-bottom: 10px;
     color: #ddd;
     font-family: 'NeoDunggeunmoPro-Regular';
+    font-size: 14px;
 }
 .login-form .row input{
     border: none;
@@ -393,6 +394,76 @@ ul {list-style:none}
     background: linear-gradient(137deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
 }
 
+/*  */
+#joinModal.animate__animated.animate__delay-1s {
+    -webkit-animation-delay: 0.1s !important;
+    animation-delay: 0.1s !important;
+    -webkit-animation-delay: var(--animate-delay);
+    animation-delay: var(--animate-delay);
+}
+
+.join-form {
+    width: 100%;
+    max-width: 314px;
+    margin: 35px auto 20px;
+}
+.join-form .row {margin-bottom: 15px;position: relative}
+
+.join-form .row .label {
+    margin-bottom: 10px;
+    color: #ddd;
+    font-family: 'NeoDunggeunmoPro-Regular';
+    font-size: 14px;
+}
+.join-form .row input{
+    border: none;
+    width: 100%;
+    max-width: 314px;
+    height: 31px;
+    color: #ddd;
+    background: url(/img/input_back_join.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 7px;
+    outline: none;
+    padding: 0 10px;
+    font-size: 14px;
+    box-shadow: 1px 0px 0px 0px rgba(255,255,255,0.1);
+}
+.join-form .row input::placeholder{font-size: 12px;}
+
+.join-form .row.half {
+    display:flex;
+
+}
+.join-form .row.half .half-row+.half-row{
+    margin-left: 10px;
+}
+.join-form .row.half .half-row input{
+    background: url(/img/input_back_half.png) no-repeat;
+}
+
+.join-form .login-btn-wrap {
+    padding-top: 20px;
+}
+.join-form .login-btn-wrap .login-btn{
+    background: linear-gradient(90.3deg, #9C3FE4 0.16%, #C65647 101.62%);
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+    height: 50px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.join-form .hp-wrap {
+    display: flex;
+    color: #fff;
+    align-items: center;
+    gap: 5px;
+}
+
+
 /* 노트북 & 테블릿 가로 (해상도 1024px ~ 1279px)*/ 
 @media all and (max-width:1279px) { 
    
@@ -440,9 +511,6 @@ ul {list-style:none}
     }
     .wrapper .middle .sub_title {
         font-size: 16px;
-    }
-    .wrapper .enter-wrap button {
-        width: 30px;
     }
     .login-form .join-text {
         font-size: 11px;

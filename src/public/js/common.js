@@ -8,7 +8,15 @@ const isMobile = () => {
 }
 
 function openPop(id){
-	$("#"+id).addClass("on").addClass("animate__animated").addClass("animate__fadeInUpBig");
+	if($("#"+id).hasClass("on")){
+		$("#"+id).addClass("animate__animated").addClass("animate__fadeInUpBig");
+	} else {
+		$("#"+id).addClass("on").addClass("animate__animated").addClass("animate__fadeInUpBig");
+	}
+}
+
+function closePop(id){
+	$("#"+id).removeClass("animate__fadeInUpBig").addClass("animate__fadeOutDownBig");
 }
 
 $(function(){
