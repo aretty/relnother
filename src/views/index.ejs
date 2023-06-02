@@ -49,12 +49,12 @@
                         <div class="row">
                             <p class="label">아이디</p>
                             <img src="/img/user-icon.svg" class="icon">
-                            <input type="text" name="login_id" id="login_id" autocomplete="off">
+                            <input type="text" id="login_id" autocomplete="off">
                         </div>
                         <div class="row">
                             <p class="label">비밀번호</p>
                             <img src="/img/key-icon.svg" class="icon">
-                            <input type="password" name="login_pw" id="login_pw" autocomplete="off">
+                            <input type="password" id="login_pw" autocomplete="off">
                         </div>
                         <div class="login-btn-wrap">
                             <button type="button" class="login-btn">LOGIN</button>
@@ -73,28 +73,30 @@
         <div class="modal-content">
             <!-- <span class="close">&times;</span> -->
             <h2 class="modal-title">SIGN UP</h2>
-            <p class="modal-sub-title">릴나더에 입주하기</p>
+            <p class="modal-sub-title">릴나더 시작하기</p>
             <div class="modal-body">
                 <div class="join-form">
                     <form>
-                        <div class="row">
-                            <p class="label">아이디</p>
-                            <input type="text" name="user_id" id="user_id" autocomplete="off" placeholder="4~15자 영문/숫자 조합" minlength="4" maxlength="15">
-                            <a href="javascript:;" class="duplicate-check">중복확인</a>
+                        <div class="row half">
+                            <div class="half-row">
+                                <p class="label">아이디</p>
+                                <input type="text" id="user_id" autocomplete="off" placeholder="4~15자 영문/숫자 조합" minlength="4" maxlength="15">
+                                <a href="javascript:;" class="duplicate-check">중복확인</a>
+                            </div>
+                            <div class="half-row">
+                                <p class="label">닉네임</p>
+                                <input type="text" id="user_nick" autocomplete="off" placeholder="최소 2자">
+                            </div>
                         </div>
                         <div class="row half">
                             <div class="half-row">
                                 <p class="label">비밀번호</p>
-                                <input type="password" name="user_pw" id="user_pw" autocomplete="off" placeholder="영문/숫자/특수문자 조합" minlength="4" maxlength="25">
+                                <input type="password" id="user_pw" autocomplete="off" placeholder="영문/숫자/특수문자 조합" minlength="4" maxlength="25">
                             </div>
                             <div class="half-row">
                                 <p class="label">비밀번호 재입력</p>
-                                <input type="password" name="user_pw_re" id="user_pw_re" autocomplete="off" placeholder="비밀번호 재입력">
+                                <input type="password" id="user_pw_re" autocomplete="off" placeholder="비밀번호 재입력">
                             </div>
-                        </div>
-                        <div class="row">
-                            <p class="label">닉네임</p>
-                            <input type="text" name="user_nick" id="user_nick" autocomplete="off" placeholder="공백없이 한글,영문,숫자만 (한글2자, 영문4자 이상)">
                         </div>
                         <div class="row">
                             <p class="label">휴대폰번호</p>
@@ -104,8 +106,16 @@
                                 <input type="number" name="user_hp3" id="user_hp3" autocomplete="off" maxlength="4" placeholder="5678">
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="certification-wrap">
+                                <input type="number" id="auth_number">
+                                <button type="button" class="auth-btn">인증번호 전송</button>
+                            </div>
+                        </div>
+                       
+                        <p class="error_msg blinking"></p>
                         <div class="login-btn-wrap">
-                            <button type="button" class="login-btn">SIGN UP</button>
+                            <button type="button" class="join-btn">SIGN UP</button>
                         </div>
                         <div class="go-login-wrap">
                             <a href="javascript:;" class="go-login">로그인으로 돌아가기</a>
@@ -115,7 +125,8 @@
             </div>
         </div>
     </div>
-
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/js/user.js"></script>
     
 <%- include('./common/footer.ejs') %>
