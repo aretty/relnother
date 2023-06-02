@@ -30,6 +30,7 @@ html {height:calc(var(--vh, 1vh) * 100);min-width:320px}
 body {margin:0;padding:0;height:calc(var(--vh, 1vh) * 100);font-family:'SUITE-Regular','Malgun Gothic', dotum, sans-serif}
 html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
 input, button {margin:0;padding:0;font-family:'SUITE-Regular','Malgun Gothic', dotum, sans-serif}
+input, button, a {-webkit-tap-highlight-color:transparent}
 button {cursor:pointer}
 input[type=text], input[type=password], input[type=submit], input[type=image], button {-webkit-appearance:none}
 textarea, select {font-family:'SUITE-Regular','Malgun Gothic', dotum, sans-serif}

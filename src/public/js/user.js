@@ -1,12 +1,5 @@
 "use strict"
 
-var nowFocus = "";
-window.onpopstate = function(event) {
-    if(nowFocus == "login_id" || nowFocus == "login_pw"){
-        $(".join-wrap").show();     
-    }
-}
-
 const id = document.querySelector("#login_id"),
     password = document.querySelector("#login_pw"),
     loginBtn = document.querySelector("button");
@@ -63,12 +56,10 @@ $(function(){
 
     if(isMobile()){
         $("input[type=text], input[type=password]").focus(function(){
-            nowFocus = $(this).attr("id");
             $(".join-wrap").hide();
         });
 
         $("input[type=text], input[type=password]").blur(function(){
-            nowFocus = "";
             $(".join-wrap").show();
         });
     }
