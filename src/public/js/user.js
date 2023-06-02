@@ -1,10 +1,17 @@
 "use strict"
 
-const id = document.querySelector("#id"),
-    password = document.querySelector("#password"),
+var nowFocus = "";
+window.onpopstate = function(event) {
+    if(nowFocus == "login_id" || nowFocus == "login_pw"){
+        $(".join-wrap").show();     
+    }
+}
+
+const id = document.querySelector("#login_id"),
+    password = document.querySelector("#login_pw"),
     loginBtn = document.querySelector("button");
 
-loginBtn.addEventListener("click",login);
+// loginBtn.addEventListener("click",login);
 
 function login(){
     const req = {
@@ -56,14 +63,12 @@ $(function(){
 
     if(isMobile()){
         $("input[type=text], input[type=password]").focus(function(){
+            nowFocus = $(this).attr("id");
             $(".join-wrap").hide();
-
-            window.onpopstate = function(event) {
-                $(".join-wrap").show();
-            }
         });
 
         $("input[type=text], input[type=password]").blur(function(){
+            nowFocus = "";
             $(".join-wrap").show();
         });
     }
