@@ -36,23 +36,6 @@
         <div class="enter-wrap animate__animated animate__bounceInUp animate__delay-2s">
             <button type="button" id="enter_btn"><img src="/img/neon_arrow.svg"></button>
         </div>
-
-
-        <div class="chatting-wrap" style="display: none;">
-            <ul class="chatting-list">
-
-            </ul>
-
-            <div class="input-wrap">
-                <div class="user-container">
-                    대화명 : <input type="text" id="nickname" value="<%=userName%>">
-                </div>
-                <div class="input-container">
-                    <input type="text" class="chatting-input">
-                    <button class="send-button">전송</button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div id="loginModal" class="modal-wrap">
@@ -66,12 +49,12 @@
                         <div class="row">
                             <p class="label">아이디</p>
                             <img src="/img/user-icon.svg" class="icon">
-                            <input type="text" name="user_id" id="user_id" autocomplete="off">
+                            <input type="text" name="login_id" id="login_id" autocomplete="off">
                         </div>
                         <div class="row">
                             <p class="label">비밀번호</p>
                             <img src="/img/key-icon.svg" class="icon">
-                            <input type="password" name="user_pw" id="user_pw" autocomplete="off">
+                            <input type="password" name="login_pw" id="login_pw" autocomplete="off">
                         </div>
                         <div class="login-btn-wrap">
                             <button type="button" class="login-btn">LOGIN</button>
@@ -97,6 +80,7 @@
                         <div class="row">
                             <p class="label">아이디</p>
                             <input type="text" name="user_id" id="user_id" autocomplete="off" placeholder="4~15자 영문/숫자 조합" minlength="4" maxlength="15">
+                            <a href="javascript:;" class="duplicate-check">중복확인</a>
                         </div>
                         <div class="row half">
                             <div class="half-row">
@@ -110,18 +94,21 @@
                         </div>
                         <div class="row">
                             <p class="label">닉네임</p>
-                            <input type="text" name="user_nick" id="user_nick" autocomplete="off" placeholder="공백없이 한글,영문,숫자만 입력 가능 (한글2자, 영문4자 이상)">
+                            <input type="text" name="user_nick" id="user_nick" autocomplete="off" placeholder="공백없이 한글,영문,숫자만 (한글2자, 영문4자 이상)">
                         </div>
                         <div class="row">
                             <p class="label">휴대폰번호</p>
                             <div class="hp-wrap">
-                                <input type="text" name="user_hp1" id="user_hp1" autocomplete="off" maxlength="3" placeholder="010"> - 
-                                <input type="text" name="user_hp2" id="user_hp2" autocomplete="off" maxlength="4" placeholder="1234"> - 
-                                <input type="text" name="user_hp3" id="user_hp3" autocomplete="off" maxlength="4" placeholder="5678">
+                                <input type="number" name="user_hp1" id="user_hp1" autocomplete="off" maxlength="3" placeholder="010"> - 
+                                <input type="number" name="user_hp2" id="user_hp2" autocomplete="off" maxlength="4" placeholder="1234"> - 
+                                <input type="number" name="user_hp3" id="user_hp3" autocomplete="off" maxlength="4" placeholder="5678">
                             </div>
                         </div>
                         <div class="login-btn-wrap">
                             <button type="button" class="login-btn">SIGN UP</button>
+                        </div>
+                        <div class="go-login-wrap">
+                            <a href="javascript:;" class="go-login">로그인으로 돌아가기</a>
                         </div>
                     </form>
                 </div>
@@ -129,33 +116,6 @@
         </div>
     </div>
 
-    <!-- <script type="text/javascript" src="/socket.io/socket.io.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="/js/chat.js"></script>
-
-    <script>
-        $(function(){
-            $("#enter_btn").click(function(){
-                $(".enter-wrap").fadeOut(1000);
-                openPop("loginModal");
-            });
-
-            $(".sign-up-btn").click(function(){
-                closePop("loginModal");
-                openPop("joinModal");
-                $("#joinModal").addClass("animate__delay-1s");
-            });
-
-            if(isMobile()){
-                $("input[type=text], input[type=password]").focus(function(){
-                    $(".join-wrap").hide();
-                });
-
-                $("input[type=text], input[type=password]").blur(function(){
-                    $(".join-wrap").show();
-                });
-            }
-        });
-    </script>
+    <script src="/js/user.js"></script>
     
 <%- include('./common/footer.ejs') %>

@@ -309,6 +309,12 @@ ul {list-style:none}
     max-width: 314px;
     margin: 35px auto 20px;
 }
+#loginModal.animate__animated.animate__delay-1s {
+    -webkit-animation-delay: 0.1s !important;
+    animation-delay: 0.1s !important;
+    -webkit-animation-delay: var(--animate-delay);
+    animation-delay: var(--animate-delay);
+}
 .login-form .row {margin-bottom: 15px;position: relative}
 .login-form .row .icon {
     position: absolute;
@@ -405,13 +411,13 @@ ul {list-style:none}
 .join-form {
     width: 100%;
     max-width: 314px;
-    margin: 35px auto 20px;
+    margin: 35px auto 0px;
 }
 .join-form .row {margin-bottom: 15px;position: relative}
 
 .join-form .row .label {
     margin-bottom: 10px;
-    color: #ddd;
+    color: #ccc;
     font-family: 'NeoDunggeunmoPro-Regular';
     font-size: 14px;
 }
@@ -430,6 +436,14 @@ ul {list-style:none}
     font-size: 14px;
     box-shadow: 1px 0px 0px 0px rgba(255,255,255,0.1);
 }
+.join-form .row .duplicate-check {
+    position: absolute;
+    right: 15px;
+    font-size: 14px;
+    color: #a946b4;
+    bottom: 7px;
+    font-weight: bold;
+}
 .join-form .row input::placeholder{font-size: 12px;}
 
 .join-form .row.half {
@@ -441,6 +455,7 @@ ul {list-style:none}
 }
 .join-form .row.half .half-row input{
     background: url(/img/input_back_half.png) no-repeat;
+    background-position-x: right;
 }
 
 .join-form .login-btn-wrap {
@@ -462,7 +477,15 @@ ul {list-style:none}
     align-items: center;
     gap: 5px;
 }
-
+.join-form .go-login {
+    display: block;
+    font-size: 11px;
+    color: #ddd;
+    font-family: 'NeoDunggeunmoPro-Regular';
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: underline;
+}
 
 /* 노트북 & 테블릿 가로 (해상도 1024px ~ 1279px)*/ 
 @media all and (max-width:1279px) { 
@@ -500,6 +523,17 @@ ul {list-style:none}
 
 /* 모바일 세로 (해상도 ~ 479px)*/ 
 @media all and (max-width:479px) {
+    .wrapper #background-star .top::before {
+        content: "";
+        background: url(/img/main_background_mo.jpg) no-repeat;
+        background-position: center center;
+        background-size: cover;
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+    }
     .wrapper .middle {
         top: 25%;
     }

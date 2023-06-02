@@ -8,15 +8,18 @@ const isMobile = () => {
 }
 
 function openPop(id){
-	if($("#"+id).hasClass("on")){
-		$("#"+id).addClass("animate__animated").addClass("animate__fadeInUpBig");
-	} else {
-		$("#"+id).addClass("on").addClass("animate__animated").addClass("animate__fadeInUpBig");
+	if($("#"+id).hasClass("animate__fadeOutDownBig")){
+		$("#"+id).removeClass("animate__fadeOutDownBig");
 	}
+	$("#"+id).addClass("on").addClass("animate__animated").addClass("animate__fadeInUpBig");
+	
 }
 
 function closePop(id){
 	$("#"+id).removeClass("animate__fadeInUpBig").addClass("animate__fadeOutDownBig");
+	setTimeout(function() {
+		$("#"+id).removeClass("on");
+	}, 500);
 }
 
 $(function(){
