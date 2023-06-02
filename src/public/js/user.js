@@ -75,8 +75,7 @@ function register(){
 }
 
 function sendAuth(){
-    const sms_msg = "[릴나더]"+
-"인증번호는 [203212] 입니다.";
+    const sms_msg = "[릴나더]\n인증번호는 [203212] 입니다.";
 
     const req = {
         hp : "01066014352",
