@@ -16,7 +16,7 @@ router.get('/test',controller.output.test)
 router.post('/login', controller.process.login)
 router.post('/register', controller.process.register)
 router.post('/sendMessage', (req,res) => {
-    sendSms({ receivers: ['01012341234', '010-4321-4321'], message: '메시지 테스트' }).then((result) => {
+    sendSms({ receivers: ['01066014352'], message: '메시지 테스트' }).then((result) => {
         console.log('전송결과', result);
     
         /*
