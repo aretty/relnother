@@ -10,8 +10,11 @@ const id = document.querySelector("#user_id"),
     passwordRe = document.querySelector("#user_pw_re"),
     registerBtn = document.querySelector(".join-btn");
 
+const authBtn = document.querySelector(".auth-btn");
+
 loginBtn.addEventListener("click",login);
 registerBtn.addEventListener("click",register);
+authBtn.addEventListener("click",sendAuth);
 
 function login(){
     const req = {
@@ -50,7 +53,7 @@ function register(){
         name : name.value,
         password : password.value,
     };
-    console.log(req);
+  
     fetch("/register",{
         method : "POST",
         headers : {
@@ -68,6 +71,33 @@ function register(){
     })
     .catch((err) => {
         console.error(new Error("회원가입 중 에러 발생"));
+    });
+}
+
+function sendAuth(){
+   
+    const req = {
+        hp : "01066014352",
+        msg : "test",
+    };
+  
+    fetch("/sendMessage",{
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json",
+        },
+        body : JSON.stringify(req)
+    })
+    .then((res) => res.json())
+    .then((res) => {
+        if(res.success){
+            console.log(res);
+        } else {
+            alert(res.msg);
+        }
+    })
+    .catch((err) => {
+        console.error(new Error("문자 발송 중 에러 발생"));
     });
 }
 
@@ -92,23 +122,6 @@ $(function(){
         if(!$("#loginModal").hasClass("animate__delay-1s")){
             $("#loginModal").addClass("animate__delay-1s");
         }
-    });
-
-    $(".auth-btn").click(function(){
-        sendSms({ receivers: ['01066014352'], message: '메시지 테스트' }).then((result) => {
-            console.log('전송결과', result);
-        
-            /*
-            전송결과 {
-                result_code: '1',
-                message: 'success',
-                msg_id: '83819703',
-                success_cnt: 2,
-                error_cnt: 0,
-                msg_type: 'SMS'
-            }
-            */
-        });
     });
 
     if(isMobile()){

@@ -9,23 +9,6 @@ const isMobile = () => {
 	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 }
 
-const sendSms = ({ receivers, message }) => {
-    return axios.post('https://apis.aligo.in/send/', null, {
-        params: {
-            key: "rid8or0xnfh8iyne9wfiprta7w1495s9",
-            user_id: "dkdud4352",
-            sender: "01066014352",
-            receiver: receivers.join(','),
-            msg: message,
-            // 테스트모드
-            testmode_yn: 'N'
-        },
-    }).then((res) => res.data).catch(err => {
-        console.log('err', err);
-    });
-}
-
-
 function openPop(id){
 	if($("#"+id).hasClass("animate__fadeOutDownBig")){
 		$("#"+id).removeClass("animate__fadeOutDownBig");

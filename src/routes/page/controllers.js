@@ -2,7 +2,6 @@
 
 const User = require("../../models/User")
 
-
 const output = {
     main : (req, res) => {
         // console.log(req.session);
@@ -26,9 +25,6 @@ const output = {
     },
     test : (req,res) => {
         res.render('test')
-    },
-    naverCallback : (req,res) => {
-
     }
 };
 
@@ -47,6 +43,7 @@ const process = {
         return res.json(response);
     }
 }
+
 
 module.exports = {
    output,
