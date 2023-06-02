@@ -30,7 +30,11 @@ router.post('/sendMessage', (req,res) => {
         }
         */
     });
-    return res.json('{ "success" : "true" }');
+
+    var response = {
+        success : true
+    }
+    return res.json(response);
 })
 
 
