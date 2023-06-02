@@ -12,9 +12,9 @@ const isMobile = () => {
 const sendSms = ({ receivers, message }) => {
     return axios.post('https://apis.aligo.in/send/', null, {
         params: {
-            key: process.env.ALIGO_KEY,
-            user_id: process.env.ALIGO_ID,
-            sender: process.env.ALIGO_SENDER,
+            key: "rid8or0xnfh8iyne9wfiprta7w1495s9",
+            user_id: "dkdud4352",
+            sender: "01066014352",
             receiver: receivers.join(','),
             msg: message,
             // 테스트모드
