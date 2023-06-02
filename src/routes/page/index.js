@@ -16,7 +16,20 @@ router.get('/test',controller.output.test)
 router.post('/login', controller.process.login)
 router.post('/register', controller.process.register)
 router.post('/sendMessage', (req,res) => {
-    sendSMS('01066014352', '안녕하세요, 알리고 문자 서비스 예제입니다.');
+    sendSms({ receivers: ['01012341234', '010-4321-4321'], message: '메시지 테스트' }).then((result) => {
+        console.log('전송결과', result);
+    
+        /*
+        전송결과 {
+            result_code: '1',
+            message: 'success',
+            msg_id: '83819703',
+            success_cnt: 2,
+            error_cnt: 0,
+            msg_type: 'SMS'
+        }
+        */
+    });
     return res.json('{ "success" : "true" }');
 })
 
@@ -27,19 +40,20 @@ user_id: 'dkdud4352', // 알리고 사용자 아이디
 sender: '01066014352', // 발신자명
 };
 
-const sendSMS = async (to, text) => {
-try {
-    const response = await axios.post('https://apis.aligo.in/send/', {
-    key: aligoConfig.apiKey,
-    user_id: aligoConfig.user_id,
-    sender: aligoConfig.sender,
-    receiver: to, // 수신자 전화번호
-    msg: text, // 메시지 내용
+const sendSms = ({ receivers, message }) => {
+    return axios.post('https://apis.aligo.in/send/', null, {
+        params: {
+            key: aligoConfig.apiKey,
+            user_id: aligoConfig.user_id,
+            sender: aligoConfig.sender,
+            receiver: receivers.join(','),
+            msg: message,
+            // 테스트모드
+            testmode_yn: 'Y'
+        },
+    }).then((res) => res.data).catch(err => {
+        console.log('err', err);
     });
-    console.log(response.data);
-} catch (error) {
-    console.error(error);
 }
-};
 
 module.exports = router;
