@@ -491,7 +491,7 @@ ul {list-style:none}
     font-family: 'NeoDunggeunmoPro-Regular';
     margin-top: 15px;
     text-align: center;
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 .join-form .error_msg {
     color: indianred;

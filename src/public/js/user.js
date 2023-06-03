@@ -50,27 +50,44 @@ function register(){
     const nickReg = /^([a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]).{2,10}$/;
 
     if(!id.value){
-        $(".error_msg").text("아이디를 입력해 주세요.");
+        show_msg("red","아이디를 입력해 주세요.");
+        return;
+    }
+
+    if(id.value.length < 4 || id.value.length > 15){
+        show_msg("red","아이디는 4자 이상 15자 이하로 입력해 주세요.");
         return;
     }
 
     if(!idReg.test(id.value)){
-        $(".error_msg").text("아이디는 영문/숫자만 입력 가능합니다.");
+        show_msg("red","아이디는 영문/숫자만 입력 가능합니다.");
         return;
     }
 
     if(!nick.value){
-        $(".error_msg").text("닉네임을 입력해 주세요.");
+        show_msg("red","닉네임을 입력해 주세요.");
         return;
     }
 
+    if(getByteLengthOfString(nick.value) < 4){
+        show_msg("red","닉네임은 한글 2자 이상, 영어 4자 이상 입력해 주세요.");
+        return;
+    }
+
+
+    if(id.value.length < 4 || id.value.length > 15){
+        show_msg("red","아이디는 4자 이상 15자 이하로 입력해 주세요.");
+        return;
+    }
+
+
     if(!nickReg.test(nick.value)){
-        $(".error_msg").text("닉네임은 한글/영문/숫자만 사용할 수 있습니다.");
+        show_msg("red","닉네임은 한글/영문/숫자만 사용할 수 있습니다.");
         return;
     }
 
     if(password.value !== passwordRe.value){
-        $(".error_msg").text("비밀번호가 일치하지 않습니다.");
+        show_msg("red","비밀번호가 일치하지 않습니다.");
         return;
     }     
 
@@ -104,12 +121,11 @@ function register(){
 
 function sendAuth(){
     const userHp = hp1.value+"-"+hp2.value+"-"+hp3.value;
-    console.log(userHp);
-
+   
     var hpReg = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
 
     if(!hpReg.test(userHp)){
-        $(".error_msg").text("휴대폰 번호를 올바르게 입력해 주세요.");
+        show_msg("red","휴대폰 번호를 올바르게 입력해 주세요.");
         return;  
     }
 
@@ -132,7 +148,7 @@ function sendAuth(){
     .then((res) => res.json())
     .then((res) => {
         if(res.success){
-            console.log(res);
+            show_msg("green","인증번호가 전송되었습니다.");
         } else {
             alert(res.msg);
         }
@@ -148,8 +164,25 @@ function generateRandomCode(n) {
       str += Math.floor(Math.random() * 10)
     }
     return str
-  }
+}
 
+function show_msg(color,msg){
+    if(color == "green"){
+        if(!$(".error_msg").hasClass("green")){
+            $(".error_msg").addClass("green");
+        }
+    } else {
+        if($(".error_msg").hasClass("green")){
+            $(".error_msg").removeClass("green");
+        } 
+    }
+    $(".error_msg").text(msg);
+}
+
+const getByteLengthOfString = function(s,b,i,c){
+    for(b=i=0;c=s.charCodeAt(i++);b+=c>>11?3:c>>7?2:1);
+    return b;
+};
 
 $(function(){
     $("#enter_btn").click(function(){
