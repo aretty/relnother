@@ -499,6 +499,9 @@ ul {list-style:none}
     font-size: 14px;
     font-weight: bold;
 }
+.join-form .error_msg.green {
+    color: springgreen;
+}
 
 .join-form .certification-wrap {
     display: flex;
@@ -518,9 +521,9 @@ ul {list-style:none}
 }
 
 .blinking{
-    -webkit-animation: blink 0.5s ease-in-out infinite alternate;
-    -moz-animation: blink 0.5s ease-in-out infinite alternate;
-    animation: blink 0.5s ease-in-out infinite alternate;
+    -webkit-animation: blink 0.8s ease-in-out infinite alternate;
+    -moz-animation: blink 0.8s ease-in-out infinite alternate;
+    animation: blink 0.8s ease-in-out infinite alternate;
   }
   
   @-webkit-keyframes blink{
