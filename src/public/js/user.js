@@ -12,7 +12,6 @@ const id = document.querySelector("#user_id"),
     hp2 = document.querySelector("#user_hp2"),
     hp3 = document.querySelector("#user_hp3"),
     registerBtn = document.querySelector(".join-btn");
-const userHp = hp1.value+"-"+hp2.value+"-"+hp3.value;
 
 const authBtn = document.querySelector(".auth-btn");
 
@@ -104,6 +103,9 @@ function register(){
 }
 
 function sendAuth(){
+    const userHp = hp1.value+"-"+hp2.value+"-"+hp3.value;
+    console.log(userHp);
+
     var hpReg = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
 
     if(!hpReg.test(userHp)){
