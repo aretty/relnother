@@ -46,8 +46,8 @@ function login(){
 }
 
 function register(){
-    const idReg = /^[A-Za-z0-9]{4,12}$/;
-    const nickReg = /^([a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]).{2,10}$/;
+    const idReg = /^[A-Za-z0-9]+$/;
+    const nickReg = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/;
 
     if(!id.value){
         show_msg("red","아이디를 입력해 주세요.");
@@ -69,22 +69,25 @@ function register(){
         return;
     }
 
-    if(getByteLengthOfString(nick.value) < 4){
+    if(getByteB(nick.value) < 4){
         show_msg("red","닉네임은 한글 2자 이상, 영어 4자 이상 입력해 주세요.");
         return;
     }
-
-
-    if(id.value.length < 4 || id.value.length > 15){
-        show_msg("red","아이디는 4자 이상 15자 이하로 입력해 주세요.");
-        return;
-    }
-
 
     if(!nickReg.test(nick.value)){
         show_msg("red","닉네임은 한글/영문/숫자만 사용할 수 있습니다.");
         return;
     }
+
+    if(!password.value){
+        show_msg("red","비밀번호를 입력해 주세요.");
+        return;
+    }  
+
+    if(!passwordRe.value){
+        show_msg("red","비밀번호를 재입력해 주세요.");
+        return;
+    }  
 
     if(password.value !== passwordRe.value){
         show_msg("red","비밀번호가 일치하지 않습니다.");
@@ -150,6 +153,7 @@ function sendAuth(){
         if(res.success){
             show_msg("green","인증번호가 전송되었습니다.");
         } else {
+            console.log(res);
             alert(res.msg);
         }
     })
@@ -179,10 +183,15 @@ function show_msg(color,msg){
     $(".error_msg").text(msg);
 }
 
-const getByteLengthOfString = function(s,b,i,c){
-    for(b=i=0;c=s.charCodeAt(i++);b+=c>>11?3:c>>7?2:1);
-    return b;
-};
+function getByteB(str) {
+    var byte = 0;
+    for (var i=0; i<str.length; ++i) {
+    // 기본 한글 2바이트 처리
+    (str.charCodeAt(i) > 127) ? byte += 3 : byte++ ;
+    }
+    
+    return byte;
+}
 
 $(function(){
     $("#enter_btn").click(function(){

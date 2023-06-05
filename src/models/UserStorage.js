@@ -46,7 +46,7 @@ class UserStorage {
             let salt = Math.round((new Date().valueOf() * Math.random())) + "";
             let hashPassword = crypto.createHash("sha512").update(userPassword + salt).digest("hex");
 
-            const query = "INSERT INTO users(id, name, password, salt, datetime) VALUES(?, ?, ?, ?, now());";
+            const query = "INSERT INTO users(id, nick, password, salt, datetime) VALUES(?, ?, ?, ?, now());";
             db.query(query,[userInfo.id, userInfo.name, hashPassword, salt], (err) => {
                 if(err) reject(`${err}`);
                 resolve({ success : true });
