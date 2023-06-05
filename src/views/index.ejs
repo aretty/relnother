@@ -88,17 +88,20 @@
                                 <input type="text" id="user_nick" autocomplete="off" placeholder="한글 2자 이상, 영어 4자 이상">
                             </div>
                         </div>
-                        <div class="row half">
-                            <div class="half-row">
-                                <p class="label">비밀번호</p>
-                                <input type="password" id="user_pw" autocomplete="off" placeholder="영문/숫자/특수문자 조합" minlength="4" maxlength="25">
-                            </div>
-                            <div class="half-row">
-                                <p class="label">비밀번호 재입력</p>
-                                <input type="password" id="user_pw_re" autocomplete="off" placeholder="비밀번호 재입력">
+                        <div class="row set">
+                            <p class="label">비밀번호</p>
+                            <input type="password" id="user_pw" autocomplete="off" placeholder="영문/숫자/특수문자 조합" minlength="4" maxlength="25">
+                            <div class="strength">
+                                <span class="bar red"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="state red">낮음</span>
                             </div>
                         </div>
                         <div class="row">
+                            <input type="password" id="user_pw_re" autocomplete="off" placeholder="비밀번호 재입력">
+                        </div>
+                        <div class="row set">
                             <p class="label">휴대폰번호</p>
                             <div class="hp-wrap">
                                 <input type="number" name="user_hp1" id="user_hp1" autocomplete="off" maxlength="3" placeholder="010"> - 

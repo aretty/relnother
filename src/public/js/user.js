@@ -11,9 +11,11 @@ const id = document.querySelector("#user_id"),
     hp1 = document.querySelector("#user_hp1"),
     hp2 = document.querySelector("#user_hp2"),
     hp3 = document.querySelector("#user_hp3"),
+    authNumber = document.querySelector("#auth_number"), 
     registerBtn = document.querySelector(".join-btn");
 
 const authBtn = document.querySelector(".auth-btn");
+const authChk = 0;
 
 loginBtn.addEventListener("click",login);
 registerBtn.addEventListener("click",register);
@@ -84,6 +86,11 @@ function register(){
         return;
     }  
 
+    if(password.value < 6){
+        show_msg("red","비밀번호는 최소 6자 이상 입력해 주세요.");
+        return;
+    }
+
     if(!passwordRe.value){
         show_msg("red","비밀번호를 재입력해 주세요.");
         return;
@@ -93,6 +100,16 @@ function register(){
         show_msg("red","비밀번호가 일치하지 않습니다.");
         return;
     }     
+
+    if(authChk == 0){
+        show_msg("red","휴대폰 인증을 진행해 주세요.");
+        return;
+    }
+
+    if(!authNumber.value){
+        show_msg("red","인증번호를 입력해 주세요.");
+        return;
+    }
 
 
     const req = {
@@ -152,6 +169,7 @@ function sendAuth(){
     .then((res) => {
         if(res.success){
             show_msg("green","인증번호가 전송되었습니다.");
+            authChk = 1;
         } else {
             console.log(res);
             alert(res.msg);
@@ -193,7 +211,57 @@ function getByteB(str) {
     return byte;
 }
 
+function checkPassword(pw){
+    var res = "낮음";
+    var cnt = 0;
+
+    var passwordCondition = new Array();
+    passwordCondition.push("[A-Za-z]");
+    passwordCondition.push("[0-9]");
+    passwordCondition.push("[!@#$%^&*()]");
+
+    for(var i=0; i<passwordCondition.length; i++){
+        if(new RegExp(passwordCondition[i]).test(pw)){
+            cnt++;
+        }
+    }
+
+    if(pw.length > 5){
+        cnt++;
+    }
+
+    if(cnt == 4) {
+        res = "높음"; 
+    } else if(cnt == 3){
+        res = "보통";
+    }
+
+    return res;
+}
+
 $(function(){
+    
+    $("#user_pw").keyup(function(){
+        var res = checkPassword($(this).val());
+        if(res == "높음"){
+            $(".strength .bar").each(function(){
+                $(this).removeClass("red").removeClass("yellow").addClass("green");
+            });
+            $(".strength .state").removeClass("red").removeClass("yellow").addClass("green");
+        } else if(res == "보통"){
+            $(".strength .bar").each(function(){
+                $(this).removeClass("red").removeClass("green").addClass("yellow");
+            });
+            $(".strength .bar:nth-child(3)").removeClass("yellow");
+            $(".strength .state").removeClass("red").removeClass("green").addClass("yellow");
+        } else {
+            $(".strength .bar").removeClass("red").removeClass("green").removeClass("yellow");
+            $(".strength .bar:nth-child(1)").addClass("red");
+            $(".strength .state").removeClass("yellow").removeClass("green").addClass("red");
+        }
+        $(".strength .state").text(res);
+    });
+
     $("#enter_btn").click(function(){
         $(".enter-wrap").fadeOut(1000);
         openPop("loginModal");

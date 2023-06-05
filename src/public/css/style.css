@@ -420,7 +420,7 @@ ul {list-style:none}
     margin: 35px auto 0px;
 }
 .join-form .row {margin-bottom: 15px;position: relative}
-
+.join-form .row.set {margin-bottom: 10px;}
 .join-form .row .label {
     margin-bottom: 10px;
     color: #ccc;
@@ -464,6 +464,33 @@ ul {list-style:none}
     background: url(/img/input_back_half.png) no-repeat;
     background-position-x: right;
 }
+
+.join-form .row .strength {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    top: 32px;
+    font-size: 12px;
+    font-weight: bold;
+    gap: 3px;
+}
+.join-form .row .strength .bar{
+    background: #555;
+    width: 10px;
+    height: 2px;
+    border-radius: 5px;
+}
+.join-form .row .strength .bar:nth-child(1){opacity: 0.6;}
+.join-form .row .strength .bar:nth-child(2){opacity: 0.8;}
+.join-form .row .strength .bar.green{background: rgba(76, 175, 80, 1);}
+.join-form .row .strength .bar.red{background: #ad4848;}
+.join-form .row .strength .bar.yellow{background: #b5b53e;}
+
+.join-form .row .strength .state {margin-left: 3px;}
+.join-form .row .strength .state.green {color: rgba(76, 175, 80, 1);}
+.join-form .row .strength .state.red {color: #ad4848;}
+.join-form .row .strength .state.yellow {color: #b5b53e;}
 
 .join-form .login-btn-wrap {
     padding-top: 20px;
