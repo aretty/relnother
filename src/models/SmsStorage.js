@@ -31,21 +31,21 @@ class SmsStorage {
 
         });
     }
+}
 
-    static sendSms = ({ receivers, message }) => {
-        return axios.post('https://apis.aligo.in/send/', null, {
-            params: {
-                key: process.env.ALIGO_KEY,
-                user_id: process.env.ALIGO_ID,
-                sender: process.env.ALIGO_SENDER,
-                receiver: receivers.join(','),
-                msg: message,
-                testmode_yn: 'N'
-            },
-        }).then((res) => res.data).catch(err => {
-            console.log('err', err);
-        });
-    }
+const sendSms = ({ receivers, message }) => {
+    return axios.post('https://apis.aligo.in/send/', null, {
+        params: {
+            key: process.env.ALIGO_KEY,
+            user_id: process.env.ALIGO_ID,
+            sender: process.env.ALIGO_SENDER,
+            receiver: receivers.join(','),
+            msg: message,
+            testmode_yn: 'N'
+        },
+    }).then((res) => res.data).catch(err => {
+        console.log('err', err);
+    });
 }
 
 module.exports = SmsStorage;
