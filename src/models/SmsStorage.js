@@ -11,7 +11,7 @@ class SmsStorage {
 
             if(division == 'register'){
                 const existHpQuery = "select * from users where hp = ? order by idx desc limit 1;";
-                db.query(existHpQuery, [hp], (err) => {
+                db.query(existHpQuery, [hp], (err, data) => {
                     if(err) reject(`${err}`);
 
                     if(data.length > 0){
