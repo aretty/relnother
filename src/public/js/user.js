@@ -15,7 +15,8 @@ const id = document.querySelector("#user_id"),
     registerBtn = document.querySelector(".join-btn");
 
 const authBtn = document.querySelector(".auth-btn");
-const authChk = 0;
+let userHp = "";
+let authChk = 0;
 
 loginBtn.addEventListener("click",login);
 registerBtn.addEventListener("click",register);
@@ -111,12 +112,12 @@ function register(){
         return;
     }
 
-
     const req = {
         id : id.value,
         nick : nick.value,
         password : password.value,
         hp : userHp,
+        authNumber : authNumber.value,
     };
   
     fetch("/register",{
@@ -129,9 +130,10 @@ function register(){
     .then((res) => res.json())
     .then((res) => {
         if(res.success){
-            location.href = "/login";
+            $(".join-form").hide();
+            $(".loading-section").css("display","flex");
         } else {
-            alert(res.msg);
+            show_msg("red",res.msg);
         }
     })
     .catch((err) => {
@@ -140,7 +142,9 @@ function register(){
 }
 
 function sendAuth(){
-    const userHp = hp1.value+"-"+hp2.value+"-"+hp3.value;
+    $(".auth-btn").addClass("disabled");
+
+    userHp = hp1.value+"-"+hp2.value+"-"+hp3.value;
    
     var hpReg = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
 
@@ -156,6 +160,7 @@ function sendAuth(){
         hp : userHp,
         authNum : authNum,
         msg : smsMsg,
+        division : 'register',
     };
   
     fetch("/sendMessage",{
@@ -170,9 +175,13 @@ function sendAuth(){
         if(res.success){
             show_msg("green","인증번호가 전송되었습니다.");
             authChk = 1;
+            $("#user_hp1").attr("readonly",true);
+            $("#user_hp2").attr("readonly",true);
+            $("#user_hp3").attr("readonly",true);
         } else {
-            console.log(res);
-            alert(res.msg);
+            show_msg("red",res.msg);
+            authChk = 0;
+            $(".auth-btn").removeClass("disabled");
         }
     })
     .catch((err) => {

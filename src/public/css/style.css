@@ -545,7 +545,81 @@ ul {list-style:none}
     color: #fff;
     margin-left: 7px;
     font-size: 12px;
+    transition: all .2s;
 }
+.join-form .certification-wrap .auth-btn.disabled {
+    color: #C65647;
+    border: 1px solid #C65647;
+    pointer-events: none;
+}
+
+.loading-section {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+}
+.loading-section .loader {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 165px auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.loading-section .loader-line .line {
+    width: 8px;
+    position: absolute;
+    border-radius: 5px;
+    bottom: 0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#1ee95d), to(#5714ce));
+    background: -webkit-linear-gradient(top, #1ee95d, #5714ce);
+    background: -o-linear-gradient(top, #1ee95d, #5714ce);
+    background: linear-gradient(to bottom, #1ee95d, #5714ce);
+}
+
+.loading-section .loader-line .line1 {
+    left: 0;
+    -webkit-animation: line-grow 0.5s ease alternate infinite;
+    animation: line-grow 0.5s ease alternate infinite;
+}
+
+.loading-section .loader-line .line2 {
+    left: 20px;
+    -webkit-animation: line-grow 0.5s 0.2s ease alternate infinite;
+    animation: line-grow 0.5s 0.2s ease alternate infinite;
+}
+
+.loading-section .loader-line .line3 {
+    left: 40px;
+    -webkit-animation: line-grow 0.5s 0.4s ease alternate infinite;
+    animation: line-grow 0.5s 0.4s ease alternate infinite;
+}
+
+
+/* ----------------     KEYFRAMES    ----------------- */
+
+
+@-webkit-keyframes line-grow {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 75%;
+    }
+}
+
+@keyframes line-grow {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 75%;
+    }
+}
+
 
 .blinking{
     -webkit-animation: blink 0.8s ease-in-out infinite alternate;

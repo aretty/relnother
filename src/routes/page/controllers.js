@@ -14,12 +14,12 @@ const output = {
         }
         res.render('index', { userName : "" })
     },
-    login : (req, res) => {
-        res.render('login')
-    },
-    register : (req, res) => {
-        res.render('register')
-    },
+    // login : (req, res) => {
+    //     res.render('login')
+    // },
+    // register : (req, res) => {
+    //     res.render('register')
+    // },
     logout : (req, res) => {
         req.session.destroy();
         res.redirect('/');
