@@ -5,14 +5,7 @@ const Sms = require("../../models/Sms")
 
 const output = {
     main : (req, res) => {
-        // console.log(req.session);
-        const userName = req.session.userName;
-        
-        if(userName){
-            res.render('index', { userName : userName });
-            return;
-        }
-        res.render('index', { userName : "" })
+        res.render('index')
     },
     // login : (req, res) => {
     //     res.render('login')
@@ -26,6 +19,16 @@ const output = {
     },
     test : (req,res) => {
         res.render('test')
+    },
+    lobby : (req,res) => {
+         // console.log(req.session);
+         const userName = req.session.userName;
+        
+         if(userName){
+             res.render('main', { userName : userName });
+             return;
+         }
+         res.redirect('/');
     }
 };
 
@@ -34,7 +37,7 @@ const process = {
         const user = new User(req.body);
         const response = await user.login();
         if(response.success){
-            req.session.userName = response.name;
+            req.session.userName = response.nick;
         }
         return res.json(response);
     },

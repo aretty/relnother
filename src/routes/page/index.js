@@ -10,6 +10,7 @@ router.get('/', controller.output.main)
 // router.get('/register', controller.output.register)
 router.get('/logout', controller.output.logout)
 router.get('/test',controller.output.test)
+router.get('/main',controller.output.lobby)
 
 router.post('/login', controller.process.login)
 router.post('/register', controller.process.register)

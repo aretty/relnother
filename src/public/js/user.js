@@ -38,9 +38,9 @@ function login(){
     .then((res) => res.json())
     .then((res) => {
         if(res.success){
-            location.href = "/";
+            location.href = "/main";
         } else {
-            alert(res.msg);
+            show_msg("red",res.msg);
         }
     })
     .catch((err) => {
@@ -132,6 +132,18 @@ function register(){
         if(res.success){
             $(".join-form").hide();
             $(".loading-section").css("display","flex");
+
+            setTimeout(function() {
+                $("#loginModal .modal-title").text("complete!");
+                $("#loginModal .modal-sub-title").text('<i class="fa-regular fa-circle-check"></i> 회원가입 완료! 로그인 후 릴나더를 시작해 보세요.');
+                $(".join-wrap").hide();
+
+                closePop("joinModal");
+                openPop("loginModal");
+                if(!$("#loginModal").hasClass("animate__delay-1s")){
+                    $("#loginModal").addClass("animate__delay-1s");
+                }
+            }, 2000);
         } else {
             show_msg("red",res.msg);
         }

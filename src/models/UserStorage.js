@@ -19,7 +19,7 @@ class UserStorage {
                     if(dbPassword === hashPassword){
                         var res = {
                             success : true,
-                            name : data[0].name
+                            nick : data[0].nick
                         }
                     } else {
                         var res = {
