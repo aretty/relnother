@@ -24,6 +24,13 @@ const server = http.createServer(app)
 const io = socketIO(server);
 
 io.on("connection",(socket) =>{
+  const welcome = {
+      name : 'admin',
+      msg : '채팅방에 연결되었습니다. 자유롭게 소통해 보세요!',
+      type : 'welcome'
+  };
+  io.emit("chatting-lobby",welcome);
+
   socket.on("chatting-lobby",(data)=>{
       io.emit("chatting-lobby",data)
   })
