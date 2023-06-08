@@ -37,4 +37,5 @@ function sendChat(){
     }
     socket.emit("chatting-lobby",param);
     chatInput.value = "";
+    chatInput.focus();
 }
