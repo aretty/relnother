@@ -17,10 +17,11 @@ chatInput.addEventListener('keyup',function(e){
     }  
 });
 
-socket.on("chatting",(data)=>{
+socket.on("chatting-lobby",(data)=>{
     const li = document.createElement("li")
     li.innerText = `${data.name} : ${data.msg}`;
     chatList.appendChild(li)
+    chatList.scrollTop = chatList.scrollHeight;
 })
 
 
@@ -29,6 +30,6 @@ function sendChat(){
         name : nickname.value,
         msg : chatInput.value
     }
-    socket.emit("chatting",param);
+    socket.emit("chatting-lobby",param);
     chatInput.value = "";
 }

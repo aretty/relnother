@@ -24,8 +24,8 @@ const server = http.createServer(app)
 const io = socketIO(server);
 
 io.on("connection",(socket) =>{
-  socket.on("chatting",(data)=>{
-      io.emit("chatting",data)
+  socket.on("chatting-lobby",(data)=>{
+      io.emit("chatting-lobby",data)
   })
 })
 
