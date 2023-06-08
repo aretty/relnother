@@ -212,15 +212,15 @@ function generateRandomCode(n) {
 
 function show_msg(color,msg){
     if(color == "green"){
-        if(!$(".error_msg").hasClass("green")){
-            $(".error_msg").addClass("green");
+        if(!$(".join-form .error_msg").hasClass("green")){
+            $(".join-form .error_msg").addClass("green");
         }
     } else {
-        if($(".error_msg").hasClass("green")){
-            $(".error_msg").removeClass("green");
+        if($(".join-form .error_msg").hasClass("green")){
+            $(".join-form .error_msg").removeClass("green");
         } 
     }
-    $(".error_msg").text(msg);
+    $(".join-form .error_msg").text(msg);
 }
 
 function getByteB(str) {
