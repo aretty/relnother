@@ -726,10 +726,11 @@ ul {list-style:none}
         font-size: 28px;
     }
     .wrapper .chatting-wrap {
-        bottom: unset;
-        top: 5px;
-        max-width: calc(100% - 10px);
-        max-width: calc(100% - 10px);
+        left: 0;
+        bottom: 0;
+        max-width: 100%;
+        width: 100%;
+        border-radius: 10px 10px 0 0;
         /* border-top: 1px solid purple;
         border-left: 1px solid #9C3FE4;
         border-right: 1px solid #C65647; */
@@ -738,8 +739,12 @@ ul {list-style:none}
         height: 160px;
         border-radius: 10px 10px 0 0;
     }
+    .wrapper .chatting-wrap .input-wrap {
+        border-radius: 0;
+    }
     .wrapper .chatting-wrap .input-wrap .input-container .chatting-type {
         width: 70px;
+        border-radius: 0;
     }
     .wrapper .chatting-wrap .input-wrap .input-container .chatting-input {
         width: calc(100% - 70px);
