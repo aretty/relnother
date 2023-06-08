@@ -38,9 +38,10 @@ function login(){
     .then((res) => res.json())
     .then((res) => {
         if(res.success){
+            $(".login-form .error_msg").text("");
             location.href = "/main";
         } else {
-            show_msg("red",res.msg);
+            $(".login-form .error_msg").text(res.msg);
         }
     })
     .catch((err) => {
@@ -304,13 +305,13 @@ $(function(){
         }
     });
 
-    if(isMobile()){
-        $("input[type=text], input[type=password]").focus(function(){
-            $(".join-wrap").hide();
-        });
+    // if(isMobile()){
+    //     $("input[type=text], input[type=password]").focus(function(){
+    //         $(".join-wrap").hide();
+    //     });
 
-        $("input[type=text], input[type=password]").blur(function(){
-            $(".join-wrap").show();
-        });
-    }
+    //     $("input[type=text], input[type=password]").blur(function(){
+    //         $(".join-wrap").show();
+    //     });
+    // }
 });

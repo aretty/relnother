@@ -24,13 +24,13 @@ class UserStorage {
                     } else {
                         var res = {
                             success : false,
-                            msg : "비밀번호가 틀렸습니다."
+                            msg : "비밀번호를 확인해 주세요."
                         }
                     }
                 } else {
                     var res = {
                         success : false,
-                        msg : "존재하지 않는 아이디입니다."
+                        msg : "존재하지 않는 회원 아이디입니다."
                     }
                 }
 
